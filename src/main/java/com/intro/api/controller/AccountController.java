@@ -25,7 +25,7 @@ public class AccountController {
     private UserServiceBlockingStub userService;
 
     @RequestMapping(value = "register", method = RequestMethod.POST)
-    @ApiOperation(value = "Register", notes = "Reigster new user", produces = "application/json")
+    @ApiOperation(value = "Register", nickname = "account_register", notes = "Reigster new user", produces = "application/json")
     public String register(@RequestBody(required = true) @Valid com.intro.api.model.RegisterRequest params)
             throws Exception {
         RegisterRequest req = RegisterRequest.newBuilder().setUsername(params.getUsername()).setEmail(params.getEmail())
@@ -35,7 +35,7 @@ public class AccountController {
     }
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
-    @ApiOperation(value = "Login", notes = "Login", produces = "application/json")
+    @ApiOperation(value = "Login", nickname = "account_login", notes = "Login", produces = "application/json")
     public String login(@RequestBody(required = true) @Valid com.intro.api.model.LoginRequest params) {
         AuthenticateRequest req = AuthenticateRequest.newBuilder().setUsername(params.getEmail())
                 .setPassword(params.getPassword()).build();

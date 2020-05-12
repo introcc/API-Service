@@ -24,7 +24,7 @@ public class UserController {
     private UserServiceBlockingStub userService;
 
     @RequestMapping(value = "profile", method = RequestMethod.GET)
-    @ApiOperation(value = "Profile", notes = "User profile", produces = "application/json")
+    @ApiOperation(value = "Profile", nickname = "user_profile", notes = "User profile", produces = "application/json")
     @Authorization("Authorization")
     @ResponseHeader
     public ProfileReply profile() {
